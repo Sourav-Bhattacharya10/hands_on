@@ -10,7 +10,7 @@ mod two_pointer;
 // use reverse_string::reverse_string;
 // use balanced_array::is_balanced_array;
 // use to_uppercase::to_uppercase;
-use two_pointer::two_pointer_technique;
+use two_pointer::two_pointer_technique_for_rain_water_trap;
 
 fn main() {
     // let text = "sourav";
@@ -31,16 +31,20 @@ fn main() {
 
     // println!("to uppercase : {}", to_uppercase(String::from(text)));
 
+    // println!(
+    //     "[ 10, 20, 35, 50 ] → {:?}",
+    //     two_pointer_technique_for_two_sum(vec![10, 20, 35, 50], 70i8)
+    // );
+    // println!(
+    //     "[ 10, 20, 30 ] → {:?}",
+    //     two_pointer_technique_for_two_sum(vec![10, 20, 30], 70i8)
+    // );
+    // println!(
+    //     "[ 1, 4, 6, 8, 10, 45 ] → {:?}",
+    //     two_pointer_technique_for_three_sum(vec![1, 4, 6, 8, 10, 45], 13i8)
+    // );
     println!(
-        "[ 10, 20, 35, 50 ] → {:?}",
-        two_pointer_technique(vec![10, 20, 35, 50], 70i8)
-    );
-    println!(
-        "[ 10, 20, 30 ] → {:?}",
-        two_pointer_technique(vec![10, 20, 30], 70i8)
-    );
-    println!(
-        "[ -8, 1, 4, 6, 10, 45 ] → {:?}",
-        two_pointer_technique(vec![-8, 1, 4, 6, 10, 45], 16i8)
+        "[ 3, 0, 1, 0, 4, 0, 2 ] → {:?}",
+        two_pointer_technique_for_rain_water_trap(vec![3, 0, 1, 0, 4, 0, 2])
     );
 }
