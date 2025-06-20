@@ -9,6 +9,7 @@
       "command": "cargo",
       "args": ["build"]
     },
+    "args": ["pending", "washing"],
     "program": "$ZED_WORKTREE_ROOT/target/debug/hands_on",
     "request": "launch",
     "adapter": "CodeLLDB" // GDB is available on non arm macs as well as linux

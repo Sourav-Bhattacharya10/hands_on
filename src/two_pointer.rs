@@ -50,6 +50,7 @@ pub fn _two_pointer_technique_for_three_sum(
 }
 
 pub fn two_pointer_technique_for_rain_water_trap(unsorted_vec: Vec<i8>) -> i8 {
+    // Fix the logic
     let mut water: i8 = 0;
     let mut l_max: i8 = unsorted_vec[0];
     let mut r_max: i8 = unsorted_vec[0];

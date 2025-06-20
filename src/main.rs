@@ -3,14 +3,26 @@
 // mod fibonacci;
 // mod balanced_array;
 // mod to_uppercase;
-mod two_pointer;
+// mod two_pointer;
+mod task_state;
+mod to_do;
+
+use serde_json::{Map, json, value::Value};
+use std::env;
 
 // use factorial::factorial;
 // use fibonacci::old_fibonacci;
 // use reverse_string::reverse_string;
 // use balanced_array::is_balanced_array;
 // use to_uppercase::to_uppercase;
-use two_pointer::two_pointer_technique_for_rain_water_trap;
+// use two_pointer::two_pointer_technique_for_rain_water_trap;
+use task_state::{read_file, write_to_file};
+use to_do::{
+    ItemTypes,
+    task_enum::TaskStatus,
+    task_traits::{delete::Delete, edit::Edit, get::Get},
+    to_do_factory,
+};
 
 fn main() {
     // let text = "sourav";
@@ -43,8 +55,17 @@ fn main() {
     //     "[ 1, 4, 6, 8, 10, 45 ] → {:?}",
     //     two_pointer_technique_for_three_sum(vec![1, 4, 6, 8, 10, 45], 13i8)
     // );
-    println!(
-        "[ 3, 0, 1, 0, 4, 0, 2 ] → {:?}",
-        two_pointer_technique_for_rain_water_trap(vec![3, 0, 1, 0, 4, 0, 2])
-    );
+    // println!(
+    //     "[ 3, 0, 1, 0, 4, 0, 2 ] → {:?}",
+    //     two_pointer_technique_for_rain_water_trap(vec![3, 0, 1, 0, 4, 0, 2])
+    // );
+
+    let args: Vec<String> = env::args().collect();
+    let status: &String = &args[1];
+    let title: &String = &args[2];
+    let mut state: Map<String, Value> = read_file("./state.json");
+    println!("Before operation: {:?}", state);
+    state.insert(title.to_string(), json!(status));
+    println!("After operation: {:?}", state);
+    write_to_file("./state.json", &mut state);
 }
