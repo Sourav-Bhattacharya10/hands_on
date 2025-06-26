@@ -3,8 +3,8 @@
 // mod fibonacci;
 // mod balanced_array;
 // mod to_uppercase;
-// mod two_pointer;
-mod common_prefix;
+mod two_pointer;
+// mod common_prefix;
 // mod task_state;
 // mod to_do;
 
@@ -16,7 +16,7 @@ mod common_prefix;
 // use reverse_string::reverse_string;
 // use balanced_array::is_balanced_array;
 // use to_uppercase::to_uppercase;
-// use two_pointer::two_pointer_technique_for_rain_water_trap;
+use two_pointer::two_pointer_technique_for_rain_water_trap;
 // use task_state::{read_file, write_to_file};
 // use to_do::{
 //     ItemTypes,
@@ -24,7 +24,7 @@ mod common_prefix;
 //     task_traits::{delete::Delete, edit::Edit, get::Get},
 //     to_do_factory,
 // };
-use common_prefix::find_common_prefix;
+// use common_prefix::find_common_prefix;
 
 fn main() {
     // let text = "sourav";
@@ -57,10 +57,10 @@ fn main() {
     //     "[ 1, 4, 6, 8, 10, 45 ] → {:?}",
     //     two_pointer_technique_for_three_sum(vec![1, 4, 6, 8, 10, 45], 13i8)
     // );
-    // println!(
-    //     "[ 3, 0, 1, 0, 4, 0, 2 ] → {:?}",
-    //     two_pointer_technique_for_rain_water_trap(vec![3, 0, 1, 0, 4, 0, 2])
-    // );
+    println!(
+        "[ 3, 0, 1, 0, 4, 0, 2 ] → {:?}",
+        two_pointer_technique_for_rain_water_trap(vec![3, 0, 1, 0, 4, 0, 2])
+    );
 
     // let args: Vec<String> = env::args().collect();
     // let status: &String = &args[1];
@@ -71,6 +71,6 @@ fn main() {
     // println!("After operation: {:?}", state);
     // write_to_file("./state.json", &mut state);
 
-    let words_array = vec!["flower", "flow", "flood"];
-    println!("Common Prefix: {}", find_common_prefix(words_array));
+    // let words_array = vec!["flower", "flow", "flood"];
+    // println!("Common Prefix: {}", find_common_prefix(words_array));
 }
