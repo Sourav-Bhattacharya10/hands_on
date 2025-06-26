@@ -57,7 +57,7 @@ pub fn two_pointer_technique_for_rain_water_trap(unsorted_vec: Vec<i8>) -> i8 {
     let mut r_max = unsorted_vec[right + 1];
 
     while left <= right {
-        if (r_max <= l_max) {
+        if r_max <= l_max {
             water += (r_max - unsorted_vec[right]).max(0);
             r_max = r_max.max(unsorted_vec[right]);
             right -= 1;
