@@ -3,27 +3,25 @@
 // mod fibonacci;
 // mod balanced_array;
 // mod to_uppercase;
-mod two_pointer;
+// mod two_pointer;
 // mod common_prefix;
-// mod task_state;
-// mod to_do;
+mod processes;
+mod task_state;
+mod to_do;
 
-// use serde_json::{Map, json, value::Value};
-// use std::env;
+use serde_json::{Map, value::Value};
+use std::env;
 
 // use factorial::factorial;
 // use fibonacci::old_fibonacci;
 // use reverse_string::reverse_string;
 // use balanced_array::is_balanced_array;
 // use to_uppercase::to_uppercase;
-use two_pointer::two_pointer_technique_for_rain_water_trap;
-// use task_state::{read_file, write_to_file};
-// use to_do::{
-//     ItemTypes,
-//     task_enum::TaskStatus,
-//     task_traits::{delete::Delete, edit::Edit, get::Get},
-//     to_do_factory,
-// };
+// use two_pointer::two_pointer_technique_for_rain_water_trap;
+use processes::process_input;
+use task_state::read_file;
+use to_do::{task_enum::TaskStatus, to_do_factory};
+
 // use common_prefix::find_common_prefix;
 
 fn main() {
@@ -57,20 +55,28 @@ fn main() {
     //     "[ 1, 4, 6, 8, 10, 45 ] → {:?}",
     //     two_pointer_technique_for_three_sum(vec![1, 4, 6, 8, 10, 45], 13i8)
     // );
-    println!(
-        "[ 3, 0, 1, 0, 4, 0, 2 ] → {:?}",
-        two_pointer_technique_for_rain_water_trap(vec![3, 0, 1, 0, 4, 0, 2])
-    );
-
-    // let args: Vec<String> = env::args().collect();
-    // let status: &String = &args[1];
-    // let title: &String = &args[2];
-    // let mut state: Map<String, Value> = read_file("./state.json");
-    // println!("Before operation: {:?}", state);
-    // state.insert(title.to_string(), json!(status));
-    // println!("After operation: {:?}", state);
-    // write_to_file("./state.json", &mut state);
+    // println!(
+    //     "[ 3, 0, 1, 0, 4, 0, 2 ] → {:?}",
+    //     two_pointer_technique_for_rain_water_trap(vec![3, 0, 1, 0, 4, 0, 2])
+    // );
 
     // let words_array = vec!["flower", "flow", "flood"];
     // println!("Common Prefix: {}", find_common_prefix(words_array));
+
+    let args: Vec<String> = env::args().collect();
+    let command: &String = &args[1];
+    let title: &String = &args[2];
+    let file_name = "./state.json";
+    let state: Map<String, Value> = read_file(file_name);
+    let status: String;
+    match &state.get(*&title) {
+        Some(result) => {
+            status = result.to_string().replace('\"', "");
+        }
+        None => {
+            status = "pending".to_owned();
+        }
+    }
+    let item = to_do_factory(title, TaskStatus::from_string(status));
+    process_input(item, command.to_string(), &state, file_name);
 }
