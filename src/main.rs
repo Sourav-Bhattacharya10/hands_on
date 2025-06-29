@@ -4,9 +4,10 @@
 // mod balanced_array;
 // mod to_uppercase;
 // mod two_pointer;
-mod common_prefix;
+// mod common_prefix;
 // mod task_state;
 // mod to_do;
+mod sliding_window;
 
 // use serde_json::{Map, json, value::Value};
 // use std::env;
@@ -24,7 +25,11 @@ mod common_prefix;
 //     task_traits::{delete::Delete, edit::Edit, get::Get},
 //     to_do_factory,
 // };
-use common_prefix::find_common_prefix;
+// use common_prefix::find_common_prefix;
+use sliding_window::{
+    // basic_sliding_window,
+    longest_subarray,
+};
 
 fn main() {
     // let text = "sourav";
@@ -71,6 +76,18 @@ fn main() {
     // println!("After operation: {:?}", state);
     // write_to_file("./state.json", &mut state);
 
-    let words_array = vec!["flower", "flow", "flood"];
-    println!("Common Prefix: {}", find_common_prefix(words_array));
+    // let words_array = vec!["flower", "flow", "flood"];
+    // println!("Common Prefix: {}", find_common_prefix(words_array));
+
+    // let array: Vec<i8> = vec![5, 2, -1, 0, 3];
+    // println!(
+    //     "The max sum of any window is {}",
+    //     basic_sliding_window(array, 3)
+    // );
+
+    let array: Vec<i8> = vec![-5, 8, -14, 2, 4, 12];
+    println!("The longest subarray is {}", longest_subarray(array, -5));
+
+    let array: Vec<i8> = vec![10, -10, 20, 30];
+    println!("The longest subarray is {}", longest_subarray(array, 5));
 }
