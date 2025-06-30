@@ -12,8 +12,8 @@
 // mod to_do;
 mod sliding_window;
 
-use serde_json::{Map, value::Value};
-use std::env;
+// use serde_json::{Map, value::Value};
+// use std::env;
 
 // use factorial::factorial;
 // use fibonacci::old_fibonacci;
@@ -34,7 +34,8 @@ use std::env;
 // use common_prefix::find_common_prefix;
 use sliding_window::{
     // basic_sliding_window,
-    longest_subarray,
+    // longest_subarray,
+    length_of_longest_substring,
 };
 
 // use common_prefix::find_common_prefix;
@@ -84,11 +85,17 @@ fn main() {
     //     basic_sliding_window(array, 3)
     // );
 
-    let array: Vec<i8> = vec![-5, 8, -14, 2, 4, 12];
-    println!("The longest subarray is {}", longest_subarray(array, -5));
+    // let array: Vec<i8> = vec![-5, 8, -14, 2, 4, 12];
+    // println!("The longest subarray is {}", longest_subarray(array, -5));
 
-    let array: Vec<i8> = vec![10, -10, 20, 30];
-    println!("The longest subarray is {}", longest_subarray(array, 5));
+    // let array: Vec<i8> = vec![10, -10, 20, 30];
+    // println!("The longest subarray is {}", longest_subarray(array, 5));
+
+    let array = "abcabcbb";
+    println!(
+        "The length of longest subarray is {}",
+        length_of_longest_substring(array)
+    );
 
     //     let args: Vec<String> = env::args().collect();
     //     let command: &String = &args[1];

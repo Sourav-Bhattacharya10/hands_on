@@ -70,3 +70,30 @@ pub fn two_pointer_technique_for_rain_water_trap(unsorted_vec: Vec<i8>) -> i8 {
 
     water
 }
+
+pub fn length_of_longest_substring(s: &str) -> usize {
+    let mut char_map: HashMap<char, u8> = HashMap::new();
+    let mut left: usize = 0;
+    let mut right: usize = s.len() - 1;
+    let s_chars: Vec<char> = s.chars().collect();
+
+    for i in 0..s_chars.len() {
+        if char_map.contains_key(&s_chars[i]) {
+            char_map.insert(s_chars[i], char_map.get(&s_chars[i]).unwrap() + 1);
+        } else {
+            char_map.insert(s_chars[i], 1);
+        }
+    }
+
+    while !char_map.values().all(|val| val == &1) {
+        if char_map.get(&s_chars[right]).unwrap() > &1 {
+            char_map.insert(s_chars[right], char_map.get(&s_chars[right]).unwrap() - 1);
+            right -= 1;
+        } else if char_map.get(&s_chars[left]).unwrap() > &1 {
+            char_map.insert(s_chars[left], char_map.get(&s_chars[left]).unwrap() - 1);
+            left += 1;
+        }
+    }
+
+    return right - left + 1;
+}

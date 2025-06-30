@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 pub fn basic_sliding_window(arr: Vec<i8>, k: usize) -> i8 {
     let n = arr.len();
@@ -45,4 +45,27 @@ pub fn longest_subarray(arr: Vec<i8>, k: i8) -> usize {
     }
 
     result
+}
+
+pub fn length_of_longest_substring(s: &str) -> usize {
+    let mut max_length: usize = 0;
+    let mut left: usize = 0;
+    let mut right: usize = 0;
+    let mut char_set: HashSet<char> = HashSet::new();
+    let s_chars: Vec<char> = s.chars().collect();
+
+    while right < s_chars.len() {
+        while char_set.contains(&s_chars[right]) {
+            char_set.remove(&s_chars[left]);
+            left += 1;
+        }
+
+        char_set.insert(s_chars[right]);
+
+        max_length = max_length.max(right - left + 1);
+
+        right += 1;
+    }
+
+    return max_length;
 }
