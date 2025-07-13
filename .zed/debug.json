@@ -13,5 +13,15 @@
     "program": "$ZED_WORKTREE_ROOT/target/debug/hands_on",
     "request": "launch",
     "adapter": "CodeLLDB" // GDB is available on non arm macs as well as linux
+  },
+  {
+    "label": "Build & Debug Rust binary main2",
+    "build": {
+      "command": "cargo",
+      "args": ["build"]
+    },
+    "program": "$ZED_WORKTREE_ROOT/target/debug/main2",
+    "request": "launch",
+    "adapter": "CodeLLDB" // GDB is available on non arm macs as well as linux
   }
 ]

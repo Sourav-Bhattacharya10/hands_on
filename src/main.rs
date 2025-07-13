@@ -7,7 +7,7 @@
 // mod common_prefix;
 // mod task_state;
 // mod to_do;
-mod sliding_window;
+// mod sliding_window;
 
 // use serde_json::{Map, json, value::Value};
 // use std::env;
@@ -26,10 +26,10 @@ mod sliding_window;
 //     to_do_factory,
 // };
 // use common_prefix::find_common_prefix;
-use sliding_window::{
-    // basic_sliding_window,
-    longest_subarray,
-};
+// use sliding_window::{
+//     // basic_sliding_window,
+//     longest_subarray,
+// };
 
 fn main() {
     // let text = "sourav";
@@ -85,9 +85,9 @@ fn main() {
     //     basic_sliding_window(array, 3)
     // );
 
-    let array: Vec<i8> = vec![-5, 8, -14, 2, 4, 12];
-    println!("The longest subarray is {}", longest_subarray(array, -5));
+    // let array: Vec<i8> = vec![-5, 8, -14, 2, 4, 12];
+    // println!("The longest subarray is {}", longest_subarray(array, -5));
 
-    let array: Vec<i8> = vec![10, -10, 20, 30];
-    println!("The longest subarray is {}", longest_subarray(array, 5));
+    // let array: Vec<i8> = vec![10, -10, 20, 30];
+    // println!("The longest subarray is {}", longest_subarray(array, 5));
 }
