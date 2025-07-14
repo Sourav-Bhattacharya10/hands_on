@@ -32,11 +32,11 @@
 //     to_do_factory,
 // };
 // use common_prefix::find_common_prefix;
-use sliding_window::{
-    // basic_sliding_window,
-    // longest_subarray,
-    length_of_longest_substring,
-};
+// use sliding_window::{
+//     // basic_sliding_window,
+//     // longest_subarray,
+//     length_of_longest_substring,
+// };
 
 // use common_prefix::find_common_prefix;
 
@@ -91,11 +91,11 @@ fn main() {
     // let array: Vec<i8> = vec![10, -10, 20, 30];
     // println!("The longest subarray is {}", longest_subarray(array, 5));
 
-    let array = "abcabcbb";
-    println!(
-        "The length of longest subarray is {}",
-        length_of_longest_substring(array)
-    );
+    // let array = "abcabcbb";
+    // println!(
+    //     "The length of longest subarray is {}",
+    //     length_of_longest_substring(array)
+    // );
 
     //     let args: Vec<String> = env::args().collect();
     //     let command: &String = &args[1];
