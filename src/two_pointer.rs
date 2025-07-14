@@ -50,37 +50,50 @@ pub fn _two_pointer_technique_for_three_sum(
 }
 
 pub fn two_pointer_technique_for_rain_water_trap(unsorted_vec: Vec<i8>) -> i8 {
-    // Fix the logic
     let mut water: i8 = 0;
-    let mut l_max: i8 = unsorted_vec[0];
-    let mut r_max: i8 = unsorted_vec[0];
+    let mut left: usize = 1;
+    let mut right: usize = unsorted_vec.len() - 2;
+    let mut l_max = unsorted_vec[left - 1];
+    let mut r_max = unsorted_vec[right + 1];
 
-    for i in 1..unsorted_vec.len() - 1 {
-        for j in 0..i {
-            if unsorted_vec[j] > l_max {
-                l_max = unsorted_vec[j];
-            }
+    while left <= right {
+        if r_max <= l_max {
+            water += (r_max - unsorted_vec[right]).max(0);
+            r_max = r_max.max(unsorted_vec[right]);
+            right -= 1;
+        } else {
+            water += (l_max - unsorted_vec[left]).max(0);
+            l_max = l_max.max(unsorted_vec[left]);
+            left += 1;
         }
-
-        for j in i + 1..unsorted_vec.len() {
-            if unsorted_vec[j] > r_max {
-                r_max = unsorted_vec[j];
-            }
-        }
-        // }
-
-        let min_block = l_max.min(r_max);
-        // for i in 0..unsorted_vec.len() - 1 {
-        println!(
-            "Vals1: {} {} {} {} {}",
-            l_max, r_max, min_block, unsorted_vec[i], water
-        );
-        water += min_block - unsorted_vec[i];
-        println!(
-            "Vals2: {} {} {} {} {}",
-            l_max, r_max, min_block, unsorted_vec[i], water
-        );
     }
 
     water
+}
+
+pub fn length_of_longest_substring(s: &str) -> usize {
+    let mut char_map: HashMap<char, u8> = HashMap::new();
+    let mut left: usize = 0;
+    let mut right: usize = s.len() - 1;
+    let s_chars: Vec<char> = s.chars().collect();
+
+    for i in 0..s_chars.len() {
+        if char_map.contains_key(&s_chars[i]) {
+            char_map.insert(s_chars[i], char_map.get(&s_chars[i]).unwrap() + 1);
+        } else {
+            char_map.insert(s_chars[i], 1);
+        }
+    }
+
+    while !char_map.values().all(|val| val == &1) {
+        if char_map.get(&s_chars[right]).unwrap() > &1 {
+            char_map.insert(s_chars[right], char_map.get(&s_chars[right]).unwrap() - 1);
+            right -= 1;
+        } else if char_map.get(&s_chars[left]).unwrap() > &1 {
+            char_map.insert(s_chars[left], char_map.get(&s_chars[left]).unwrap() - 1);
+            left += 1;
+        }
+    }
+
+    return right - left + 1;
 }
