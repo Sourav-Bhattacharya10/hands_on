@@ -1,6 +1,6 @@
 // mod reverse_string;
 // mod factorial;
-mod fibonacci;
+// mod fibonacci;
 // mod balanced_array;
 // mod to_uppercase;
 // mod two_pointer;
@@ -16,7 +16,7 @@ mod fibonacci;
 // use std::env;
 
 // use factorial::factorial;
-use fibonacci::{Fibonacci, old_fibonacci};
+// use fibonacci::{Fibonacci, old_fibonacci};
 // use reverse_string::reverse_string;
 // use balanced_array::is_balanced_array;
 // use to_uppercase::to_uppercase;
@@ -47,11 +47,11 @@ fn main() {
     //     // let n: u32 = 5;
     //     // println!("Factorial of {} is {}", n, factorial(n));
 
-    let n: u32 = 10;
-    println!("Fibonacci of {}th term is {}", n, old_fibonacci(n));
+    // let n: u32 = 10;
+    // println!("Fibonacci of {}th term is {}", n, old_fibonacci(n));
 
-    let fibs = Fibonacci::new();
-    println!("New Fibonacci of {}th term is {}", n, fibs.nth_term(n));
+    // let fibs = Fibonacci::new();
+    // println!("New Fibonacci of {}th term is {}", n, fibs.nth_term(n));
     //     // println!("[ -2, 3, 2, -3 ] → {}", is_balanced_array(vec![ -2, 3, 2, -3 ]));
     //     // println!("[ 1, 1, -1, -1 ] → {}", is_balanced_array(vec![ 1, 1, -1, -1 ]));
     //     // println!("[ 1, 1, -1 ] → {}", is_balanced_array(vec![ 1, 1, -1 ]));
@@ -116,22 +116,3 @@ fn main() {
     //     let item = to_do_factory(title, TaskStatus::from_string(status));
     //     process_input(item, command.to_string(), &state, file_name);
 }
-
-// use actix_web::{App, HttpRequest, HttpServer, Responder, web};
-// async fn greet(req: HttpRequest) -> impl Responder {
-//     let name = req.match_info().get("name").unwrap_or("World");
-//     format!("Hello {}!", name)
-// }
-
-// #[actix_web::main]
-// async fn main() -> std::io::Result<()> {
-//     HttpServer::new(|| {
-//         App::new()
-//             .route("/", web::get().to(greet))
-//             .route("/{name}", web::get().to(greet))
-//             .route("/say/hello", web::get().to(|| async { "Hello Again!" }))
-//     })
-//     .bind("127.0.0.1:8080")?
-//     .run()
-//     .await
-// }
